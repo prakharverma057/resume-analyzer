@@ -6,7 +6,8 @@
     "build": "react-router build",
     "dev": "react-router dev",
     "start": "react-router-serve ./build/server/index.js",
-    "typecheck": "react-router typegen && tsc"
+    "typecheck": "react-router typegen && tsc",
+    "postbuild": "copy public\\_redirects build\\_redirects"
   },
   "dependencies": {
     "@react-router/node": "^7.7.0",
