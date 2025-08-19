@@ -6,17 +6,14 @@ import { useNavigate } from "react-router";
 import { convertPdfToImage } from "~/lib/pdf2img";
 import { generateUUID } from "~/lib/utils";
 import { prepareInstructions } from "../../constants";
+import { useFileUpload } from "~/hooks/useFileUpload";
 
 const Upload = () => {
   const { auth, isLoading, fs, ai, kv } = usePuterStore();
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
   const [statusText, setStatusText] = useState("");
-  const [file, setFile] = useState<File | null>(null);
-
-  const handleFileSelect = (file: File | null) => {
-    setFile(file);
-  };
+  const { file, handleFileSelect } = useFileUpload();
 
   const handleAnalyze = async ({
     companyName,
@@ -94,7 +91,7 @@ const Upload = () => {
 
   return (
     <main className="bg-[url('/images/bg-main.svg')] bg-cover">
-      <Navbar />
+      <Navbar button1="hello" button2="back to homepage" />
 
       <section className="main-section">
         <div className="page-heading py-16">
@@ -156,4 +153,5 @@ const Upload = () => {
     </main>
   );
 };
+
 export default Upload;
