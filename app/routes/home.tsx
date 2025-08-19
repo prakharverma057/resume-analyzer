@@ -5,8 +5,6 @@ import { usePuterStore } from "~/lib/puter";
 import { Link, useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import HeroSection from "~/components/HeroSection";
-import FileUploader from "~/components/FileUploader";
-import { useFileUpload } from "~/hooks/useFileUpload";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -20,7 +18,6 @@ export default function Home() {
   const navigate = useNavigate();
   const [resumes, setResumes] = useState<Resume[]>([]);
   const [loadingResumes, setLoadingResumes] = useState(false);
-  const { file, handleFileSelect } = useFileUpload();
 
   useEffect(() => {
     if (!auth.isAuthenticated) navigate("/auth?next=/");
@@ -49,23 +46,6 @@ export default function Home() {
 
       <section className="main-section">
         <HeroSection />
-
-        {!loadingResumes && resumes?.length === 0 && (
-          <div className="flex flex-col items-center justify-center mt-10 gap-4">
-            {/* <Link
-              to="/upload"
-              className="primary-button bg-[#57CDA4] font-bold mx-3"
-            >
-              Upload Resume
-            </Link> */}
-            <Link
-              to="/upload"
-              className="primary-button w-fit text-xl font-semibold"
-            >
-              Upload Resume
-            </Link>
-          </div>
-        )}
       </section>
     </main>
   );

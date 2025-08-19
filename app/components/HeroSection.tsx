@@ -1,5 +1,8 @@
 import { Link } from "react-router";
+import FileUploader from "~/components/FileUploader";
+import { useFileUpload } from "~/hooks/useFileUpload";
 const HeroSection = () => {
+  const { file, handleFileSelect } = useFileUpload();
   return (
     <>
       <div className="bg-[url(https://enhancv.com/_next/static/images/background-new-356c805786f29eb394b6aca8abadb225.svg)] bg-cover w-full min-h-screen">
@@ -13,13 +16,14 @@ const HeroSection = () => {
           </div>
           <img
             src="https://enhancv.com/_next/static/images/resume-checker-45626345c378d9776f3413e1bb91006a.svg"
-            className="w-[700px] "
+            className="w-[700px] translate-x-20 "
           />
         </div>
-        <div className=" mt-10 gap-4">
-          <Link to="/upload" className=" w-fit text-xl font-semibold">
+        <div className="w-3xl mt-10 gap-4">
+          {/* <Link to="/upload" className=" w-fit text-xl font-semibold">
             Upload Resume
-          </Link>
+          </Link> */}
+          <FileUploader onFileSelect={handleFileSelect} />
         </div>
       </div>
     </>
