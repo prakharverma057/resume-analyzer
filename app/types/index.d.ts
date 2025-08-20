@@ -7,8 +7,8 @@ interface Job {
 
 interface Resume {
   id: string;
-  companyName?: string;
-  jobTitle?: string;
+  // companyName?: string;
+  // jobTitle?: string;
   imagePath: string;
   resumePath: string;
   feedback: Feedback;

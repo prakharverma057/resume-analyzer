@@ -1,5 +1,60 @@
 import { create } from "zustand";
 
+// Type definitions for Puter
+interface PuterUser {
+  id: string;
+  username: string;
+  email?: string;
+  [key: string]: any;
+}
+
+interface FSItem {
+  name: string;
+  path: string;
+  type: "file" | "directory";
+  size?: number;
+  modified?: Date;
+  [key: string]: any;
+}
+
+interface ChatMessage {
+  role: "user" | "assistant" | "system";
+  content:
+    | string
+    | Array<{
+        type: "text" | "file";
+        text?: string;
+        puter_path?: string;
+      }>;
+}
+
+interface PuterChatOptions {
+  model?: string;
+  temperature?: number;
+  max_tokens?: number;
+  [key: string]: any;
+}
+
+interface AIResponse {
+  success: boolean;
+  message?: {
+    content: string | Array<{ text: string }>;
+  };
+  error?: {
+    delegate?: string;
+    message?: string;
+    code?: string;
+    status?: number;
+    [key: string]: any;
+  };
+  [key: string]: any;
+}
+
+interface KVItem {
+  key: string;
+  value: string;
+}
+
 declare global {
   interface Window {
     puter: {
@@ -334,24 +389,89 @@ export const usePuterStore = create<PuterStore>((set, get) => {
       return;
     }
 
-    return puter.ai.chat(
-      [
-        {
-          role: "user",
-          content: [
+    // Try different models if the default fails
+    // Using valid Puter AI model names from https://puter.com/puterai/chat/models
+    const modelsToTry = [
+      "gpt-4o-mini", // Try GPT-4o-mini first (usually has higher limits)
+      "gpt-4o",
+      "claude-3-5-haiku",
+      "claude-3-5-sonnet",
+      "claude-3-haiku",
+      "claude-3-sonnet",
+      "gpt-3.5-turbo-0125",
+      "llama-3.1-70b-instruct",
+      "llama-3.1-8b-instruct",
+    ];
+
+    let lastError: any = null;
+
+    for (const modelName of modelsToTry) {
+      try {
+        console.log(`Trying AI model: ${modelName}`);
+
+        const result = (await puter.ai.chat(
+          [
             {
-              type: "file",
-              puter_path: path,
-            },
-            {
-              type: "text",
-              text: message,
+              role: "user",
+              content: [
+                {
+                  type: "file",
+                  puter_path: path,
+                },
+                {
+                  type: "text",
+                  text: message,
+                },
+              ],
             },
           ],
+          { model: modelName }
+        )) as AIResponse;
+
+        console.log(`Model ${modelName} response:`, result);
+
+        // Check if the result indicates success
+        if (result && result.success !== false && result.message) {
+          console.log(`Successfully used AI model: ${modelName}`);
+          return result;
+        }
+
+        // If this model failed, log the error and try the next one
+        if (result && result.success === false) {
+          console.log(`Model ${modelName} failed with error:`, result.error);
+          lastError = result;
+
+          // Check if it's a usage limit error
+          if (result.error?.delegate === "usage-limited-chat") {
+            console.log(
+              `Model ${modelName} hit usage limit, trying next model...`
+            );
+            continue;
+          }
+        }
+
+        console.log(
+          `Model ${modelName} returned unexpected result, trying next model...`
+        );
+      } catch (error) {
+        console.log(`Model ${modelName} threw error:`, error);
+        lastError = error;
+        // Continue to next model
+      }
+    }
+
+    // If all models failed, return the last error as a failed response
+    console.error("All AI models failed. Last error:", lastError);
+
+    // Return a properly formatted error response
+    return {
+      success: false,
+      error: lastError?.error ||
+        lastError || {
+          message: "All AI models failed or hit usage limits",
+          delegate: "multiple-models-failed",
         },
-      ],
-      { model: "claude-3-7-sonnet" }
-    ) as Promise<AIResponse | undefined>;
+    } as AIResponse;
   };
 
   const img2txt = async (image: string | File | Blob, testMode?: boolean) => {
