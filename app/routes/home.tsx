@@ -48,8 +48,8 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-cover">
-      <Navbar button1="sign in" button2="Upload Resume" />
+    <main className="bg-cover overflow-hidden">
+      <Navbar />
 
       <section className="main-section">
         <HeroSection />

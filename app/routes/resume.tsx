@@ -4,6 +4,7 @@ import { usePuterStore } from "~/lib/puter";
 import Summary from "~/components/Summary";
 import ATS from "~/components/ATS";
 import Details from "~/components/Details";
+import Navbar from "~/components/Navbar";
 
 export const meta = () => [
   { title: "Resumind | Review " },
@@ -19,8 +20,7 @@ const Resume = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isLoading && !auth.isAuthenticated)
-      navigate(`/?next=/resume/${id}`);
+    if (!isLoading && !auth.isAuthenticated) navigate(`/?next=/resume/${id}`);
   }, [isLoading]);
 
   useEffect(() => {
@@ -54,14 +54,15 @@ const Resume = () => {
 
   return (
     <main className="!pt-0">
-      <nav className="resume-nav">
+      {/* <nav className="resume-nav">
         <Link to="/" className="back-button">
           <img src="/icons/back.svg" alt="logo" className="w-2.5 h-2.5" />
           <span className="text-gray-800 text-sm font-semibold">
             Back to Homepage
           </span>
         </Link>
-      </nav>
+      </nav> */}
+      <Navbar button1="Back to Homepage" link1="/" />
       <div className="flex flex-row w-full max-lg:flex-col-reverse">
         <section className="feedback-section bg-[url('/images/bg-small.svg') bg-cover h-[100vh] sticky top-0 items-center justify-center">
           {imageUrl && resumeUrl ? (
