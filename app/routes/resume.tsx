@@ -20,7 +20,7 @@ const Resume = () => {
 
   useEffect(() => {
     if (!isLoading && !auth.isAuthenticated)
-      navigate(`/auth?next=/resume/${id}`);
+      navigate(`/?next=/resume/${id}`);
   }, [isLoading]);
 
   useEffect(() => {

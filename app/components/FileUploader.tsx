@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import { useResumeAnalyzer } from "./ResumeAnalyzer";
 import { type AnalyzeResumeParams } from "~/lib/resumeAnalysis";
+import { usePuterStore } from "~/lib/puter";
 
 interface FileUploaderProps {
   onFileSelect?: (file: File | null) => void;
@@ -37,6 +38,8 @@ const FileUploader = ({
   const [file, setFile] = useState<File | null>(null);
   const navigate = useNavigate();
   const { analyzeResume, isAnalyzing, status, error } = useResumeAnalyzer();
+
+  const { auth } = usePuterStore();
 
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
@@ -162,26 +165,35 @@ const FileUploader = ({
                 </button>
               </div>
 
-              <div className="pt-4">
+              {auth.isAuthenticated ? (
+                <div className="pt-4">
+                  <button
+                    onClick={handleAnalysis}
+                    disabled={isAnalyzing}
+                    className={`inline-flex items-center px-6 py-3 font-semibold rounded-lg transition-colors ${
+                      isAnalyzing
+                        ? "bg-gray-400 text-gray-200 cursor-not-allowed"
+                        : "bg-emerald-500 text-white hover:bg-emerald-600 cursor-pointer"
+                    }`}
+                  >
+                    {isAnalyzing ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                        Analyzing...
+                      </>
+                    ) : (
+                      "Get Analysis"
+                    )}
+                  </button>
+                </div>
+              ) : (
                 <button
-                  onClick={handleAnalysis}
-                  disabled={isAnalyzing}
-                  className={`inline-flex items-center px-6 py-3 font-semibold rounded-lg transition-colors ${
-                    isAnalyzing
-                      ? "bg-gray-400 text-gray-200 cursor-not-allowed"
-                      : "bg-emerald-500 text-white hover:bg-emerald-600 cursor-pointer"
-                  }`}
+                  className="inline-flex items-center px-6 py-3 font-semibold rounded-lg transition-colors"
+                  onClick={auth.signIn}
                 >
-                  {isAnalyzing ? (
-                    <>
-                      <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                      Analyzing...
-                    </>
-                  ) : (
-                    "Get Analysis"
-                  )}
+                  Login To see Analysis
                 </button>
-              </div>
+              )}
 
               <div className="flex items-center justify-center space-x-2 pt-2">
                 <CloudCheck className="h-4 w-4 text-gray-400" />

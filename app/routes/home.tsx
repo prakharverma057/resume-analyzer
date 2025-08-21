@@ -2,7 +2,7 @@ import type { Route } from "./+types/home";
 import Navbar from "~/components/Navbar";
 import ResumeCard from "~/components/ResumeCard";
 import { usePuterStore } from "~/lib/puter";
-import { Link, useNavigate } from "react-router";
+import { Link, useNavigate, useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import HeroSection from "~/components/HeroSection";
 
@@ -16,12 +16,19 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
   const { auth, kv } = usePuterStore();
   const navigate = useNavigate();
+  const location = useLocation();
   const [resumes, setResumes] = useState<Resume[]>([]);
   const [loadingResumes, setLoadingResumes] = useState(false);
 
+  // Handle redirect after authentication
   useEffect(() => {
-    if (!auth.isAuthenticated) navigate("/auth?next=/");
-  }, [auth.isAuthenticated]);
+    if (auth.isAuthenticated) {
+      const next = location.search.split("next=")[1];
+      if (next && next !== "/") {
+        navigate(decodeURIComponent(next));
+      }
+    }
+  }, [auth.isAuthenticated, location.search, navigate]);
 
   useEffect(() => {
     const loadResumes = async () => {
