@@ -138,7 +138,7 @@ const FileUploader = ({
   };
 
   return (
-    <div className=" rounded-xl">
+    <div className=" w-150 rounded-xl">
       <div {...getRootProps()}>
         <input {...getInputProps()} />
         <div

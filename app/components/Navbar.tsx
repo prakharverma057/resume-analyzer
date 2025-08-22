@@ -15,7 +15,9 @@ const Navbar = ({
   return (
     <nav className="navbar  shadow-sm">
       <Link to="/">
-        <p className="text-2xl font-bold">RezBuddy</p>
+        <p className="text-3xl font-bold">
+          Rez<span className=" text-[#57CDA4]">Buddy</span>
+        </p>
       </Link>
       <div>
         {button1 && (

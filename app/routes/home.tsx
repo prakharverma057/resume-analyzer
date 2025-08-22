@@ -4,7 +4,7 @@ import ResumeCard from "~/components/ResumeCard";
 import { usePuterStore } from "~/lib/puter";
 import { Link, useNavigate, useLocation } from "react-router";
 import { useEffect, useState } from "react";
-import HeroSection from "~/components/HeroSection";
+import HeroSection from "~/components/sections/HeroSection";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -50,7 +50,6 @@ export default function Home() {
   return (
     <main className="bg-cover overflow-hidden">
       <Navbar />
-
       <section className="main-section">
         <HeroSection />
       </section>
