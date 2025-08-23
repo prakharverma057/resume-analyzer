@@ -5,6 +5,7 @@ import { usePuterStore } from "~/lib/puter";
 import { Link, useNavigate, useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import HeroSection from "~/components/sections/HeroSection";
+import IntroSection from "~/components/sections/IntroSection";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -48,10 +49,15 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-cover overflow-hidden">
+    <main className=" bg-cover">
       <Navbar />
-      <section className="main-section">
+
+      <section className=" flex flex-col justify-center items-center">
         <HeroSection />
+        <IntroSection />
+        <IntroSection />
+        <IntroSection />
+        <IntroSection />
       </section>
     </main>
   );
