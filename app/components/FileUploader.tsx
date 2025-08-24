@@ -82,7 +82,7 @@ const FileUploader = ({
         <div {...getRootProps()}>
           <input {...getInputProps()} />
           <div
-            className={`border-2 border-dashed rounded-xl p-3 sm:p-3 text-center transition-all duration-300 ${
+            className={`border-2 m-8 border-dashed rounded-xl p-3 sm:p-3 text-center transition-all duration-300 ${
               isDragActive
                 ? "border-emerald-400 bg-emerald-50"
                 : "border-gray-300 bg-white hover:border-emerald-300 hover:bg-emerald-25"
@@ -91,8 +91,8 @@ const FileUploader = ({
             {file ? (
               <div onClick={(e) => e.stopPropagation()}>
                 {/* File preview box */}
-                <div className="flex items-center justify-between gap-4 py-4 px-6 border rounded-lg bg-gray-50">
-                  <div className="flex items-center gap-3">
+                <div className="flex items-center justify-between gap-4 p-5 border rounded-lg bg-green-50">
+                  <div className=" flex items-center gap-3">
                     <FileText className="h-10 w-10 text-gray-400" />
                     <div className="text-left">
                       <p className="text-base font-medium text-gray-700 break-words">
@@ -154,7 +154,7 @@ const FileUploader = ({
                 )}
               </div>
             ) : (
-              <div className="py-8 sm:py-12">
+              <div className="py-5 md:py-3 sm:py-12">
                 <CloudUpload className="mx-auto h-12 w-12 text-gray-400" />
                 <div className="mt-4 space-y-1">
                   <p className="text-lg font-medium text-gray-700">

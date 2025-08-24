@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router";
 
 const Navbar = ({
@@ -12,8 +12,18 @@ const Navbar = ({
   link1?: string;
   link2?: string;
 }) => {
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <nav className="navbar  shadow-sm">
+    <nav
+      className={`fixed  navbar top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/90 backdrop-blur-xs shadow-md" : "bg-transparent"
+      }`}
+    >
       <Link to="/">
         <p className="text-3xl font-bold">
           Rez<span className=" text-[#57CDA4]">Buddy</span>

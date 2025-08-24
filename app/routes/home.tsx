@@ -51,12 +51,8 @@ export default function Home() {
   return (
     <main className=" bg-cover">
       <Navbar />
-
       <section className=" flex flex-col justify-center items-center">
         <HeroSection />
-        <IntroSection />
-        <IntroSection />
-        <IntroSection />
         <IntroSection />
       </section>
     </main>

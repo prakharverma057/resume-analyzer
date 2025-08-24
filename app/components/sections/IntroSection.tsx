@@ -39,7 +39,7 @@ const IntroSection = () => {
   ];
 
   return (
-    <div className="px-10 md:p-20 -translate-y-20 bg-transparent">
+    <div className=" relative md:p-20 -translate-y-20 bg-transparent">
       <div className="flex flex-col md:flex-row gap-8 items-start">
         <img
           src="https://enhancv.com/_next/static/images/ats-checker-716fd8ba725f0a2f6ed622ea30fb0538.svg"
@@ -47,7 +47,7 @@ const IntroSection = () => {
           alt="ATS Checker"
         />
         <div className="flex flex-col gap-8 leading-7 max-w-xl">
-          <p className="font-semibold text-5xl tracking-wide">
+          <p className="font-semibold text-5xl tracking-wide pt-5">
             Who are we? What is RezBuddy's Resume Analyzer??
           </p>
           <span>
