@@ -16,7 +16,7 @@ const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
     score > 69
       ? "from-green-100"
       : score > 49
-        ? "from-yellow-100"
+        ? "from-amber-100"
         : "from-red-100";
 
   // Determine icon based on score
@@ -29,7 +29,7 @@ const ATS: React.FC<ATSProps> = ({ score, suggestions }) => {
 
   // Determine subtitle based on score
   const subtitle =
-    score > 69 ? "Great Job!" : score > 49 ? "Good Start" : "Needs Improvement";
+    score > 69 ? "Well Done!" : score > 49 ? "Good Start" : "Needs Improvement";
 
   return (
     <div

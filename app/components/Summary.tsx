@@ -11,14 +11,14 @@ const Category = ({ title, score }: { title: string; score: number }) => {
 
   return (
     <div className="resume-title">
-      <div className="category">
-        <div className="flex flex-row gap-2 items-center justify-center">
-          <p>{title}</p>
-          <ScoreBadge score={score} />
-        </div>
-        <p className="text-2xl">
+      <div className="category grid grid-cols-3 justify-between items-center space-y-3 px-5">
+        <p>{title}</p>
+        <p className="text-2xl justify-center flex">
           <span className={textColor}>{score}</span>/100
         </p>
+        <div className="flex justify-end">
+          <ScoreBadge score={score} />
+        </div>
       </div>
     </div>
   );
@@ -26,7 +26,7 @@ const Category = ({ title, score }: { title: string; score: number }) => {
 
 const Summary = ({ feedback }: { feedback: Feedback }) => {
   return (
-    <div className="bg-white rounded-2xl shadow-md w-full">
+    <div className="bg-blue-100/30 rounded-2xl shadow-xl w-full">
       <div className="flex flex-row items-center p-4 gap-8">
         <ScoreGauge score={feedback.overallScore} />
 
