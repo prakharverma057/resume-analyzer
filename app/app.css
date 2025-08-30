@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
 @import "tw-animate-css";
 
 @theme {
@@ -25,7 +27,7 @@ body {
 }
 
 main {
-  @apply min-h-screen;
+  @apply min-h-screen min-w-screen;
 }
 h1 {
   @apply max-sm:text-[3rem] text-6xl  xl:tracking-[-2px] font-semibold;

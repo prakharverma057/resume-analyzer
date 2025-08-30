@@ -19,7 +19,7 @@ const HeroSection = () => {
               <p className="tracking-wide font-semibold text-7xl">
                 Is Your Resume good enough??
               </p>
-              <p className="mt-3 font-semibold text-2xl text-gray-500">
+              <p className="mt-10 font-semibold text-2xl text-gray-500">
                 Wanna know how accurate is your Resume for your next dream job?
                 Upload to know the AI-powered score and suggestions.
               </p>

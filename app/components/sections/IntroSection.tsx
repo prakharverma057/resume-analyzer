@@ -39,8 +39,8 @@ const IntroSection = () => {
   ];
 
   return (
-    <div className=" relative md:p-20 -translate-y-20 bg-transparent">
-      <div className="flex flex-col md:flex-row gap-8 items-start">
+    <div className="flex flex-col justify-center items-center relative gap-50 md:p-20 -translate-y-20 bg-transparent">
+      <div className="flex flex-row md:flex-row gap-8 items-start">
         <img
           src="https://enhancv.com/_next/static/images/ats-checker-716fd8ba725f0a2f6ed622ea30fb0538.svg"
           className="w-lg mt-8 -translate-y-40 h-auto sticky top-[40vh] rounded-lg"
@@ -50,7 +50,7 @@ const IntroSection = () => {
           <p className="font-semibold text-5xl tracking-wide pt-5">
             Who are we? What is RezBuddy's Resume Analyzer??
           </p>
-          <span>
+          <span className="text-gray-500 font-medium">
             Getting rejected after applying even having apt skills and
             experience? This could be due to low score of your resume given by
             company's ATS. <br />
@@ -70,9 +70,37 @@ const IntroSection = () => {
                 {id}
               </div>
               <h2>{title}</h2>
-              <p>{description}</p>
+              <p className="text-gray-500 font-medium">{description}</p>
             </div>
           ))}
+        </div>
+      </div>
+      <div className=" relative md:p-20 -translate-y-20 bg-transparent ">
+        <div className="flex flex-row  md:flex-row gap-8">
+          <div className="absolute inset-0 z-0">
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-green-400/10 rounded-full blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-900/10 rounded-full blur-3xl" />
+          </div>
+          <div className="flex flex-col items-center justify-center gap-8 leading-7 max-w-xl ">
+            <p className="font-semibold text-5xl tracking-wide pt-5">
+              Get an ATS understanding Check
+            </p>
+            <span className="text-gray-500 font-medium">
+              Part of the resume checker score we assign is based on the
+              parsability rate of your resume. We’ve reverse-engineered the most
+              popular applicant tracking systems currently used and we look for
+              signs of ATS compatibility.
+              <br /> For each resume uploaded, we look for skills and keywords
+              connected to the job and industry you’re applying for, readable
+              contact information, file type, and length. Then, we’ll give you
+              suggestions on how to improve your resume.
+            </span>
+          </div>
+          <img
+            src="https://enhancv.com/_next/static/images/resume-348c033dc738da343f6621e474f48a87.svg"
+            className="w-2xl translate-x-30 mt-8 h-auto rounded-lg"
+            alt="resume stack"
+          />
         </div>
       </div>
     </div>

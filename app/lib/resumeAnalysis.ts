@@ -39,9 +39,10 @@ export const analyzeResume = async (
   const { fs, ai, kv } = services;
   const { onStatusUpdate, onError, onSuccess } = callbacks || {};
 
-  // Validate required services
+  // error analysis for validated required services
   if (!fs || !ai || !kv) {
-    const error = "Error: Required services (fs, ai, kv) are not available. Please ensure you're authenticated.";
+    const error =
+      "Error: Required services (fs, ai, kv) are not available. Please ensure you're authenticated.";
     console.error("Missing services:", { fs: !!fs, ai: !!ai, kv: !!kv });
     onError?.(error);
     return null;
@@ -102,29 +103,31 @@ export const analyzeResume = async (
       // prepareInstructions({ jobTitle, jobDescription })
       getGenericInstructions()
     );
-    
+
     console.log("AI feedback response:", feedback);
-    
+
     if (!feedback) {
-      const error = "Error: Failed to analyze resume - no response from AI service";
+      const error =
+        "Error: Failed to analyze resume - no response from AI service";
       onError?.(error);
       return null;
     }
 
-    // Check if the AI response indicates an error
+    //if the AI response indicates an error
     if (feedback.success === false) {
       let errorMessage = "AI Analysis failed";
-      
+
       if (feedback.error) {
         if (feedback.error.delegate === "usage-limited-chat") {
-          errorMessage = "AI usage limit reached. Please try again later or upgrade your account.";
+          errorMessage =
+            "AI usage limit reached. Please try again later or upgrade your account.";
         } else if (feedback.error.message) {
           errorMessage = `AI Error: ${feedback.error.message}`;
         } else {
           errorMessage = `AI Error: ${JSON.stringify(feedback.error)}`;
         }
       }
-      
+
       console.error("AI service error:", feedback.error);
       onError?.(errorMessage);
       return null;
@@ -150,30 +153,30 @@ export const analyzeResume = async (
       return null;
     }
     await kv.set(`resume:${uuid}`, JSON.stringify(data));
-    
+
     onStatusUpdate?.("Analysis complete!");
     onSuccess?.(data);
-    
+
     return data;
   } catch (error) {
     console.error("Resume analysis error:", error);
     let errorMessage = "Unknown error occurred";
-    
+
     if (error instanceof Error) {
       errorMessage = error.message;
-    } else if (typeof error === 'string') {
+    } else if (typeof error === "string") {
       errorMessage = error;
-    } else if (error && typeof error === 'object') {
+    } else if (error && typeof error === "object") {
       errorMessage = JSON.stringify(error);
     }
-    
+
     console.error("Detailed error:", {
       error,
       errorType: typeof error,
       errorMessage,
-      stack: error instanceof Error ? error.stack : 'No stack trace'
+      stack: error instanceof Error ? error.stack : "No stack trace",
     });
-    
+
     onError?.(errorMessage);
     return null;
   }

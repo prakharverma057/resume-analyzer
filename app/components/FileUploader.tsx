@@ -82,7 +82,7 @@ const FileUploader = ({
         <div {...getRootProps()}>
           <input {...getInputProps()} />
           <div
-            className={`border-2 m-8 border-dashed rounded-xl p-3 sm:p-3 text-center transition-all duration-300 ${
+            className={`!bg-green-100/40 border-2 m-8 border-dashed rounded-xl p-3 sm:p-3 text-center transition-all duration-300 ${
               isDragActive
                 ? "border-emerald-400 bg-emerald-50"
                 : "border-gray-300 bg-white hover:border-emerald-300 hover:bg-emerald-25"

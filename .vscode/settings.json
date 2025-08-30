@@ -1,3 +1,24 @@
 {
-  "cSpell.words": ["puter", "Resumind"]
+  "cSpell.words": [
+    "puter",
+    "Resumind"
+  ],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "theme"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "twMerge\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "createTheme(?:<\\w+>)?\\s*\\(([^)]*)\\)",
+      "{?\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?}?"
+    ]
+  ]
 }

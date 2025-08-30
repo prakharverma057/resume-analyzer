@@ -1,11 +1,13 @@
 import type { Route } from "./+types/home";
 import Navbar from "~/components/Navbar";
-import ResumeCard from "~/components/ResumeCard";
+// import ResumeCard from "~/components/ResumeCard";
 import { usePuterStore } from "~/lib/puter";
 import { Link, useNavigate, useLocation } from "react-router";
 import { useEffect, useState } from "react";
 import HeroSection from "~/components/sections/HeroSection";
 import IntroSection from "~/components/sections/IntroSection";
+import FeatureSection from "~/components/sections/FeatureSection";
+import { FooterComponent } from "~/components/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -18,8 +20,8 @@ export default function Home() {
   const { auth, kv } = usePuterStore();
   const navigate = useNavigate();
   const location = useLocation();
-  const [resumes, setResumes] = useState<Resume[]>([]);
-  const [loadingResumes, setLoadingResumes] = useState(false);
+  // const [resumes, setResumes] = useState<Resume[]>([]);
+  // const [loadingResumes, setLoadingResumes] = useState(false);
 
   // Handle redirect after authentication
   useEffect(() => {
@@ -31,22 +33,22 @@ export default function Home() {
     }
   }, [auth.isAuthenticated, location.search, navigate]);
 
-  useEffect(() => {
-    const loadResumes = async () => {
-      setLoadingResumes(true);
+  // useEffect(() => {
+  //   const loadResumes = async () => {
+  //     setLoadingResumes(true);
 
-      const resumes = (await kv.list("resume:*", true)) as KVItem[];
+  //     const resumes = (await kv.list("resume:*", true)) as KVItem[];
 
-      const parsedResumes = resumes?.map(
-        (resume) => JSON.parse(resume.value) as Resume
-      );
+  //     const parsedResumes = resumes?.map(
+  //       (resume) => JSON.parse(resume.value) as Resume
+  //     );
 
-      setResumes(parsedResumes || []);
-      setLoadingResumes(false);
-    };
+  //     setResumes(parsedResumes || []);
+  //     setLoadingResumes(false);
+  //   };
 
-    loadResumes();
-  }, []);
+  //   loadResumes();
+  // }, []);
 
   return (
     <main className=" bg-cover">
@@ -54,6 +56,7 @@ export default function Home() {
       <section className=" flex flex-col justify-center items-center">
         <HeroSection />
         <IntroSection />
+        <FeatureSection />
       </section>
     </main>
   );
