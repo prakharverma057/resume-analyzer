@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import HeroSection from "~/components/sections/HeroSection";
 import IntroSection from "~/components/sections/IntroSection";
 import FeatureSection from "~/components/sections/FeatureSection";
-import { FooterComponent } from "~/components/Footer";
+import FooterComponent from "~/components/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -51,13 +51,14 @@ export default function Home() {
   // }, []);
 
   return (
-    <main className=" bg-cover">
+    <>
       <Navbar />
-      <section className=" flex flex-col justify-center items-center">
+      <section className=" mt-14 flex flex-col justify-center items-center w-screen bg-cover">
         <HeroSection />
         <IntroSection />
         <FeatureSection />
+        <FooterComponent />
       </section>
-    </main>
+    </>
   );
 }

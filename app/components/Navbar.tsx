@@ -20,14 +20,17 @@ const Navbar = ({
   }, []);
   return (
     <nav
-      className={`fixed  navbar top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/90 backdrop-blur-xs shadow-md" : "bg-transparent"
+      className={`fixed h-20 navbar top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/40 backdrop-blur-xs shadow-md" : "bg-transparent"
       }`}
     >
-      <Link to="/">
-        <p className="text-3xl font-bold">
-          Rez<span className=" text-[#57CDA4]">Buddy</span>
-        </p>
+      <Link to="/" className="flex flex-row items-center">
+        <img
+          src="/images/logo.png"
+          className="w-16
+        "
+        />{" "}
+        <p className="text-3xl font-bold text-[#57CDA4]">Pathora</p>
       </Link>
       <div>
         {button1 && (
