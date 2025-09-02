@@ -36,7 +36,7 @@ const HeroSection = () => {
               <img
                 src="https://enhancv.com/_next/static/images/resume-checker-45626345c378d9776f3413e1bb91006a.svg"
                 alt="Resume checker illustration"
-                className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-none lg:w-[600px] h-auto lg:translate-x-20"
+                className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-none lg:w-[600px] md:mb-15 h-auto lg:translate-x-20"
               />
             </div>
           </div>

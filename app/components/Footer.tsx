@@ -25,15 +25,24 @@ function FooterComponent() {
       container
       theme={{
         root: {
-          base: "w-full bg-white shadow-none dark:bg-gray-800 md:flex md:items-center md:justify-between",
-          container: "w-full p-6",
+          base: "w-full bg-white shadow-none dark:bg-gray-800 md:flex md:items-center md:justify-between rounded-none",
+          container: "w-full p-6 rounded-none",
+        },
+        brand: {
+          base: "rounded-none",
+        },
+        groupLink: {
+          base: "rounded-none",
+        },
+        icon: {
+          base: "rounded-none text-gray-500 hover:text-gray-900 dark:hover:text-white",
         },
       }}
     >
-      <div className="w-full">
-        <div className="w-full h-14 sm:flex sm:items-center sm:justify-between">
+      <div className="w-full rounded-none">
+        <div className="w-full h-14 sm:flex sm:items-center sm:justify-between rounded-none">
           <FooterCopyright href="#" by="Pathora™" year={2025} />
-          <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+          <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center rounded-none">
             <FooterIcon
               href="https://prakhar-verma.netlify.app"
               icon={BsDribbble}

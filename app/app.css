@@ -21,9 +21,8 @@
   --color-badge-yellow-text: #73321b;
 }
 
-html,
 body {
-  @apply bg-white;
+  @apply bg-white w-[100%] scroll-smooth;
 }
 
 main {

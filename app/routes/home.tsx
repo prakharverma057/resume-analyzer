@@ -11,7 +11,7 @@ import FooterComponent from "~/components/Footer";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Resumind" },
+    { title: "Pathora" },
     { name: "description", content: "Smart feedback for your dream job!" },
   ];
 }

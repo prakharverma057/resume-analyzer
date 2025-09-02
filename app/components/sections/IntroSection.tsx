@@ -43,7 +43,7 @@ const IntroSection = () => {
       <div className="flex flex-col-reverse sm:flex-col md:flex-row gap-6 sm:gap-8 items-start">
         <img
           src="https://enhancv.com/_next/static/images/ats-checker-716fd8ba725f0a2f6ed622ea30fb0538.svg"
-          className="w-full sm:w-80 md:w-lg mt-4 sm:mt-6 md:mt-8 md:-translate-y-40 h-auto md:sticky md:top-[40vh] rounded-lg mx-auto md:mx-0"
+          className="w-full sm:w-80 md:w-lg mt-4 sm:mt-6 md:mt-15 md:-translate-y-40 h-auto md:sticky md:top-[40vh] rounded-lg mx-auto md:mx-0"
           alt="ATS Checker"
         />
         <div className="flex flex-col gap-6 sm:gap-8 leading-6 sm:leading-7 max-w-full md:max-w-xl">
