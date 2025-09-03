@@ -39,11 +39,11 @@ const IntroSection = () => {
   ];
 
   return (
-    <div className="flex flex-col justify-center items-center relative gap-8 sm:gap-12 md:gap-50 px-4 sm:px-8 md:p-20 -translate-y-8 sm:-translate-y-12 md:-translate-y-20 bg-transparent w-screen">
-      <div className="flex flex-col-reverse sm:flex-col md:flex-row gap-6 sm:gap-8 items-start">
+    <div className="flex flex-col justify-center items-center relative gap-8 sm:gap-12 md:gap-50 px-4 sm:px-8 md:p-10 md:py-10 -translate-y-8 sm:-translate-y-12 md:-translate-y-20 bg-transparent w-full">
+      <div className="flex flex-col-reverse sm:flex-col md:flex-col gap-6 sm:gap-8 items-start">
         <img
           src="https://enhancv.com/_next/static/images/ats-checker-716fd8ba725f0a2f6ed622ea30fb0538.svg"
-          className="w-full sm:w-80 md:w-lg mt-4 sm:mt-6 md:mt-15 md:-translate-y-40 h-auto md:sticky md:top-[40vh] rounded-lg mx-auto md:mx-0"
+          className="w-full sm:w-80 md:w-lg mt-4 sm:mt-6 md:mt-15  h-auto md:sticky rounded-lg mx-auto md:mx-0"
           alt="ATS Checker"
         />
         <div className="flex flex-col gap-6 sm:gap-8 leading-6 sm:leading-7 max-w-full md:max-w-xl">
@@ -77,12 +77,14 @@ const IntroSection = () => {
           ))}
         </div>
       </div>
-      <div className="relative px-4 sm:px-8 md:p-20 -translate-y-8 sm:-translate-y-12 md:-translate-y-20 bg-transparent">
-        <div className="flex flex-col md:flex-row gap-6 sm:gap-8">
+
+      <div className="relative px-4 sm:px-8 md:p-20 sm:-translate-y-12 bg-transparent">
+        <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-15 items-center justify-center">
           <div className="absolute inset-0 z-0">
             <div className="absolute bottom-0 left-0 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-green-400/10 rounded-full blur-3xl" />
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-pink-900/10 rounded-full blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:-translate-y-90 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-pink-900/10 rounded-full blur-3xl" />
           </div>
+
           <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 leading-6 sm:leading-7 max-w-full md:max-w-xl relative z-10">
             <p className="font-semibold text-2xl sm:text-3xl md:text-5xl tracking-wide pt-2 sm:pt-4 md:pt-5 text-center md:text-left">
               Get an ATS understanding Check
@@ -98,9 +100,10 @@ const IntroSection = () => {
               suggestions on how to improve your resume.
             </span>
           </div>
+
           <img
             src="https://enhancv.com/_next/static/images/resume-348c033dc738da343f6621e474f48a87.svg"
-            className="w-full sm:w-80 md:w-2xl md:translate-x-30 mt-4 sm:mt-6 md:mt-8 h-auto rounded-lg mx-auto md:mx-0 relative z-10"
+            className="w-full sm:w-80 md:w-md lg:w-lg lg:translate-x-15  mt-4 sm:mt-6 md:mt-8 h-auto rounded-lg mx-auto md:mx-auto relative z-10"
             alt="resume stack"
           />
         </div>

@@ -26,7 +26,7 @@ const HeroSection = () => {
                 Wanna know how accurate is your Resume for your next dream job?
                 Upload to know the AI-powered score and suggestions.
               </p>
-              <div className="mt-8 lg:mt-14 max-w-lg mx-auto lg:mx-0">
+              <div className="mt-8 lg:mt-14 lg:w-xl mx-auto sm:w-full lg:mx-0">
                 <FileUploader onFileSelect={handleFileSelect} />
               </div>
             </div>

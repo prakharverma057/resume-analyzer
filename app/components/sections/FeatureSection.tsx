@@ -33,7 +33,7 @@ const FeatureCard = ({
 
 const FeatureSection = () => {
   return (
-    <section className="min-h-screen max-w-[100%] w-full bg-cover bg-gradient-to-r from-black to-[#5545B1] flex items-center justify-center overflow-x-hidden">
+    <section className="no-x-scroll min-h-screen max-w-[100%] w-full bg-cover bg-gradient-to-r from-black to-[#5545B1] flex items-center justify-center overflow-x-hidden">
       <div className="min-w-full w-full px-4 sm:px-8 lg:px-16 py-10">
         {/* Header */}
         <div className="flex flex-col gap-7">

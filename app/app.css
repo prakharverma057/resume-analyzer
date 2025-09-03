@@ -146,3 +146,22 @@ form {
     opacity: 1;
   }
 }
+
+@layer base {
+  /* Prevent horizontal scroll caused by 100vw / w-screen & scrollbars */
+  html,
+  body,
+  :root {
+    @apply w-full overflow-x-hidden;
+  }
+
+  /* Use this on any full-bleed section that might expand unexpectedly */
+  .no-x-scroll {
+    @apply max-w-[100vw] overflow-x-clip;
+  }
+
+  /* Use this on ancestors of sticky elements to ensure sticky works */
+  .allow-sticky {
+    overflow: visible !important; /* sticky needs ancestors with overflow visible on scroll axis */
+  }
+}

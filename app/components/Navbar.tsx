@@ -49,7 +49,7 @@ const Navbar = ({
               className="w-12 sm:w-14"
               alt="Pathora Logo"
             />
-            <p className="text-xl sm:text-2xl font-bold text-[#57CDA4]">
+            <p className="text-xl sm:text-2xl font-bold text-[#42C3C2]">
               Pathora
             </p>
           </Link>
@@ -86,7 +86,9 @@ const Navbar = ({
           {/* Logo + Name */}
           <Link to="/" className="flex items-center">
             <img src="/images/logo.png" className="w-16" alt="Pathora Logo" />
-            <p className="text-3xl font-bold text-[#57CDA4] ml-2">Pathora</p>
+            <p className="text-3xl font-bold text-[#42C3C2]  sm:-translate-0.5 md:-translate:0.5 -translate-0.5 ml-2">
+              Pathora
+            </p>
           </Link>
 
           {/* Desktop Buttons */}
