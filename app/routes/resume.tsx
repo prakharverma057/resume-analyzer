@@ -7,7 +7,7 @@ import Details from "~/components/Details";
 import Navbar from "~/components/Navbar";
 
 export const meta = () => [
-  { title: "Pathora | Review " },
+  { title: "PathoraCV | Review " },
   { name: "description", content: "Detailed overview of your resume" },
 ];
 
@@ -53,7 +53,7 @@ const Resume = () => {
   return (
     <>
       <Navbar button1="Back to Homepage" link1="/" />
-      <main className="py-16 sm:py-20 md:py-24 px-3 sm:px-6 md:px-10 lg:px-16 min-h-screen bg-blue-100/40">
+      <main className="py-16 sm:py-20 md:py-24 px-3 sm:px-6 md:px-10 lg:px-16 min-h-screen bg-blue-100/20">
         <div className="flex flex-col lg:flex-row w-full items-start justify-center gap-6 lg:gap-8">
           {/* Resume Preview Section */}
           <section className="w-full lg:w-2/5 flex justify-center p-1 lg:sticky lg:top-20">
@@ -79,7 +79,7 @@ const Resume = () => {
                       href={resumeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 shadow-md hover:shadow-lg"
+                      className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 shadow-md hover:shadow-lg"
                     >
                       Open
                     </a>
@@ -99,7 +99,7 @@ const Resume = () => {
           </section>
 
           {/* Feedback Section */}
-          <section className="w-full lg:w-3/5 bg-blue-100/50 backdrop-blur-sm p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl lg:rounded-3xl">
+          <section className="w-full lg:w-3/5 bg-gray-100/50 backdrop-blur-sm p-4 sm:p-6 md:p-8 lg:p-12 rounded-xl sm:rounded-2xl lg:rounded-3xl">
             <div className="mb-6 sm:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">
                 Result
@@ -119,7 +119,7 @@ const Resume = () => {
                 <Details feedback={feedback} />
 
                 {/* CTA */}
-                <div className="mt-8 sm:mt-10 p-4 sm:p-5 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg sm:rounded-xl border border-blue-100">
+                <div className="mt-8 sm:mt-10 p-4 sm:p-5 bg-green-100/80 rounded-lg sm:rounded-xl border border-blue-100">
                   <h3 className="font-semibold text-gray-900 text-sm sm:text-base mb-2">
                     Ready to improve?
                   </h3>
@@ -128,10 +128,20 @@ const Resume = () => {
                     and ATS-friendly.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
-                    <button className="w-full sm:w-auto px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-all shadow-md hover:shadow-lg">
+                    <button
+                      onClick={() =>
+                        console.log("Feature yet to be implemented")
+                      }
+                      className="w-full sm:w-auto px-4 py-2 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-all shadow-md hover:shadow-lg"
+                    >
                       Download Report
                     </button>
-                    <button className="w-full sm:w-auto px-4 py-2 bg-white text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-50 transition-all shadow-md hover:shadow-lg border border-gray-200">
+                    <button
+                      onClick={() =>
+                        console.log("Feature yet to be implemented")
+                      }
+                      className="w-full sm:w-auto px-4 py-2 bg-white text-gray-700 text-sm font-medium rounded-lg hover:bg-gray-50 transition-all shadow-md hover:shadow-lg border border-gray-200"
+                    >
                       Analyze Another
                     </button>
                   </div>

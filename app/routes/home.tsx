@@ -8,10 +8,11 @@ import HeroSection from "~/components/sections/HeroSection";
 import IntroSection from "~/components/sections/IntroSection";
 import FeatureSection from "~/components/sections/FeatureSection";
 import FooterComponent from "~/components/Footer";
+import StepSection from "~/components/sections/StepSection";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Pathora" },
+    { title: "PathoraCV" },
     { name: "description", content: "Smart feedback for your dream job!" },
   ];
 }
@@ -56,6 +57,7 @@ export default function Home() {
       <section className=" mt-14 flex flex-col justify-center items-center w-screen bg-cover">
         <HeroSection />
         <IntroSection />
+        <StepSection />
         <FeatureSection />
         <FooterComponent />
       </section>

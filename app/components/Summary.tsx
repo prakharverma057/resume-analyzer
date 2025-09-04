@@ -26,7 +26,7 @@ const Category = ({ title, score }: { title: string; score: number }) => {
 
 const Summary = ({ feedback }: { feedback: Feedback }) => {
   return (
-    <div className="bg-blue-100/30 rounded-2xl shadow-xl w-full">
+    <div className="bg-gray-200/30 rounded-2xl shadow-xl w-full">
       <div className="flex flex-row items-center p-4 gap-8">
         <ScoreGauge score={feedback.overallScore} />
 
